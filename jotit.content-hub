@@ -1,0 +1,10 @@
+{
+    "share": [
+        "links",
+        "text"
+    ],
+    "destination": [
+        "links",
+        "text"
+    ]
+}

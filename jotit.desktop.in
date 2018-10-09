@@ -1,0 +1,8 @@
+[Desktop Entry]
+_Name=Jotit
+Exec=qmlscene qml/Main.qml
+Icon=assets/logo.png
+Terminal=false
+Type=Application
+X-Ubuntu-Touch=true
+X-Ubuntu-Splash-Color=#FFFFFF
