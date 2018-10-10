@@ -36,8 +36,11 @@ Page {
 
 
     Connections {
-        target: tabletMode ? sideStack : mainStack
-        onDepthChanged: update ()
+        target: mainStack
+        onDepthChanged: {
+            searching = false
+            update ()
+        }
     }
 
 
@@ -55,19 +58,24 @@ Page {
             },
             Action {
                 iconName: "info"
-                onTriggered: mainStack.push(Qt.resolvedUrl("./InfoPage.qml"))
+                onTriggered: {
+                    if ( mainStack.depth > 1 ) mainStack.pop()
+                    mainStack.push(Qt.resolvedUrl("./InfoPage.qml"))
+                }
             },
             Action {
                 iconName: "add"
                 onTriggered: {
                     db.transaction(
                         function(tx) {
+                            var now = new Date().getTime()
                             tx.executeSql("INSERT INTO Notes VALUES(?,?,?)", [
-                            model.count,
+                            now,
                             "",
-                            new Date().getTime()
+                            now
                             ])
-                            activeNote = model.count
+                            if ( mainStack.depth > 1 ) mainStack.pop()
+                            activeNote = now
                             mainStack.push(Qt.resolvedUrl("../pages/EditPage.qml"))
                         }
                     )
@@ -112,5 +120,13 @@ Page {
         anchors.topMargin: searching * (searchField.height + units.gu(2))
         delegate: NoteListItem {}
         model: ListModel { id: model }
+        add: Transition {
+            NumberAnimation { property: "opacity"; to: 100; duration: 300 }
+        }
+        remove: Transition {
+            ParallelAnimation {
+                NumberAnimation { property: "opacity"; to: 0; duration: 300 }
+            }
+        }
     }
 }

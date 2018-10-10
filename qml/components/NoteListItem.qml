@@ -15,6 +15,7 @@ ListItem {
     property var noteID: id
 
     onClicked: {
+        if ( mainStack.depth > 1 ) mainStack.pop()
         activeNote = noteID
         mainStack.push(Qt.resolvedUrl("../pages/EditPage.qml"))
     }

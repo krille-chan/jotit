@@ -20,10 +20,8 @@ Page {
         contentItem: Column {
             width: page.width
 
-            Icon {
-                id: coffeeImage
+            RoundedImage {
                 anchors.horizontalCenter: parent.horizontalCenter
-                anchors.topMargin: parent.width / 4
                 width: parent.width / 2
                 height: width
                 source: "../../assets/logo.png"

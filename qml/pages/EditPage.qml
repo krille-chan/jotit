@@ -11,11 +11,13 @@ Page {
     property var timestamp
     property var displayTime: new Date(timestamp).toLocaleString(Qt.locale(), Locale.ShortFormat)
     property var savedText: ""
+    property var noteID
 
     Component.onCompleted: {
+        noteID = activeNote
         db.transaction(
             function(tx) {
-                var res = tx.executeSql("SELECT * FROM Notes WHERE id=" + activeNote)
+                var res = tx.executeSql("SELECT * FROM Notes WHERE id=" + noteID)
                 timestamp = res.rows[0].timestamp
                 textArea.text = savedText = res.rows[0].text || ""
 
@@ -28,21 +30,18 @@ Page {
         if ( textArea.displayText === "" ) {
             db.transaction(
                 function(tx) {
-                    tx.executeSql("DELETE FROM Notes WHERE id=" + activeNote + " ")
+                    tx.executeSql("DELETE FROM Notes WHERE id=" + noteID + " ")
                     updateGUI()
                 }
             )
         }
-        activeNote = ""
+        noteID = ""
     }
 
 
     header: DefaultHeader {
         id: header
         title: i18n.tr('Last updated: %1').arg(displayTime)
-        StyleHints {
-            dividerColor: "white"
-        }
         trailingActionBar {
             actions: [
             Action {
@@ -61,13 +60,14 @@ Page {
             bottom: parent.bottom
             left: parent.left
             right: parent.right
+            topMargin: -units.gu(0.3)
         }
         onDisplayTextChanged: {
             if ( displayText !== savedText ) {
                 db.transaction(
                     function(tx) {
                         timestamp = new Date().getTime()
-                        tx.executeSql("UPDATE Notes SET timestamp=" + timestamp + ", text='" + textArea.displayText + "' WHERE id=" + activeNote)
+                        tx.executeSql("UPDATE Notes SET timestamp=" + timestamp + ", text='" + textArea.displayText + "' WHERE id=" + noteID)
                         savedText = textArea.displayText
                     }
                 )

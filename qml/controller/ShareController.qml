@@ -46,6 +46,7 @@ Item {
                     ])
                     activeNote = now
                     updateGUI()
+                    if ( mainStack.depth > 1 ) mainStack.pop()
                     mainStack.push(Qt.resolvedUrl("../pages/EditPage.qml"))
                 }
             )
