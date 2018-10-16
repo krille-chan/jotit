@@ -20,7 +20,7 @@ Page {
             function(tx) {
                 var res = tx.executeSql("SELECT * FROM Notes WHERE id=" + noteID)
                 timestamp = res.rows[0].timestamp
-                textArea.text = savedText = prevText = res.rows[0].text || ""
+                textArea.text = savedText = prevText = res.rows[0].text.split("&#39;").join("'") || ""
 
                 if ( textArea.text === "" ) textArea.focus = true
             }
@@ -73,7 +73,8 @@ Page {
                 db.transaction(
                     function(tx) {
                         timestamp = new Date().getTime()
-                        tx.executeSql("UPDATE Notes SET timestamp=" + timestamp + ", text='" + textArea.displayText + "' WHERE id=" + noteID)
+                        var input = textArea.displayText.split("'").join("&#39;")
+                        tx.executeSql("UPDATE Notes SET timestamp=" + timestamp + ", text='" + input + "' WHERE id=" + noteID)
                         savedText = textArea.displayText
                     }
                 )

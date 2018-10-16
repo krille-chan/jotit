@@ -26,7 +26,7 @@ Page {
                     var note = res.rows.item(i)
                     model.append ( {
                         "id": note.id,
-                        "text": note.text || i18n.tr('Empty note'),
+                        "text": note.text.split("&#39;").join("'") || i18n.tr('Empty note'),
                         "timestamp": note.timestamp
                     } )
                 }
