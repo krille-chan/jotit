@@ -11,6 +11,7 @@ Page {
     property var timestamp
     property var displayTime: new Date(timestamp).toLocaleString(Qt.locale(), Locale.ShortFormat)
     property var savedText: ""
+    property var prevText: ""
     property var noteID
 
     Component.onCompleted: {
@@ -19,7 +20,7 @@ Page {
             function(tx) {
                 var res = tx.executeSql("SELECT * FROM Notes WHERE id=" + noteID)
                 timestamp = res.rows[0].timestamp
-                textArea.text = savedText = res.rows[0].text || ""
+                textArea.text = savedText = prevText = res.rows[0].text || ""
 
                 if ( textArea.text === "" ) textArea.focus = true
             }
@@ -47,6 +48,11 @@ Page {
             Action {
                 iconName: "share"
                 onTriggered: share.share ( textArea.displayText, textArea.displayText )
+            },
+            Action {
+                iconName: "edit-undo"
+                onTriggered: textArea.text = prevText
+                enabled: savedText !== prevText
             }
             ]
         }
