@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jotit.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-16 15:08+0000\n"
+"POT-Creation-Date: 2018-11-24 21:39+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -37,19 +37,19 @@ msgstr ""
 msgid "License"
 msgstr ""
 
-#: ../qml/pages/DashPage.qml:29
+#: ../qml/pages/DashPage.qml:30
 msgid "Empty note"
 msgstr ""
 
-#: ../qml/pages/DashPage.qml:49 jotit.desktop.in.h:1
+#: ../qml/pages/DashPage.qml:50 jotit.desktop.in.h:1
 msgid "Jotit"
 msgstr ""
 
-#: ../qml/pages/DashPage.qml:90
+#: ../qml/pages/DashPage.qml:92
 msgid "You have no notes yet"
 msgstr ""
 
-#: ../qml/pages/DashPage.qml:111
+#: ../qml/pages/DashPage.qml:113
 msgid "Search…"
 msgstr ""
 

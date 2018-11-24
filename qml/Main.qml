@@ -1,6 +1,8 @@
-import QtQuick 2.4
+import QtQuick 2.9
 import QtQuick.Layouts 1.1
 import Ubuntu.Components 1.3
+import QtQuick.Controls 2.2
+import QtQuick.Controls.Suru 2.2
 import QtQuick.LocalStorage 2.0
 import "components"
 import "controller"
@@ -17,7 +19,7 @@ MainView {
     // automatically anchor items to keyboard that are anchored to the bottom
     anchorToKeyboard: true
 
-    readonly property var version: "1.2"
+    readonly property var version: "1.3"
     property var tabletMode: width > units.gu(90)
     property var prevMode: false
     property var activeNote: ""
@@ -37,14 +39,21 @@ MainView {
 
     property var db: LocalStorage.openDatabaseSync("JotitDB", "1.0", "The database of the app Jotit", 1000000)
 
-    PageStack {
+    StackView {
         id: sideStack
         visible: tabletMode
-        anchors.fill: undefined
         anchors.left: parent.left
         anchors.top: parent.top
         width: tabletMode ? units.gu(45) : parent.width
         height: parent.height
+        z: 10
+    }
+
+    Rectangle {
+        anchors.fill: sideStack
+        z: 9
+        color: "white"
+        visible: tabletMode
     }
 
     Rectangle {
@@ -57,7 +66,7 @@ MainView {
         z: 11
     }
 
-    PageStack {
+    StackView {
         id: mainStack
         anchors.fill: undefined
         anchors.right: parent.right

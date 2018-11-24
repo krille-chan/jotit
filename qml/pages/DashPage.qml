@@ -1,4 +1,4 @@
-import QtQuick 2.4
+import QtQuick 2.9
 import QtQuick.Layouts 1.1
 import Ubuntu.Components 1.3
 import Ubuntu.Components.Popups 1.3
@@ -24,6 +24,7 @@ Page {
                 model.clear ()
                 for ( var i = 0; i < res.rows.length; i++ ) {
                     var note = res.rows.item(i)
+                    if ( note.text === null ) note.text = ""
                     model.append ( {
                         "id": note.id,
                         "text": note.text.split("&#39;").join("'") || i18n.tr('Empty note'),
@@ -47,6 +48,7 @@ Page {
     header: DefaultHeader {
         id: header
         title: i18n.tr('Jotit')
+        sideStack: true
         trailingActionBar {
             actions: [
             Action {
