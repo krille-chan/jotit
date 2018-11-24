@@ -1,0 +1,58 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the jotit.christianpauly package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: jotit.christianpauly\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-10-10 07:46+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../qml/pages/InfoPage.qml:11
+msgid "Info about Jotit %1"
+msgstr "Informations au sujet de Jotit %1"
+
+#: ../qml/pages/InfoPage.qml:31
+msgid "Donate me a coffee"
+msgstr "M'offrir un café"
+
+#: ../qml/pages/InfoPage.qml:38
+msgid "Contributors"
+msgstr "Contributeurs / contributrices"
+
+#: ../qml/pages/InfoPage.qml:44
+msgid "Source code"
+msgstr "Code source"
+
+#: ../qml/pages/InfoPage.qml:50
+msgid "License"
+msgstr "Licence"
+
+#: ../qml/pages/DashPage.qml:29
+msgid "Empty note"
+msgstr "Note vide"
+
+#: ../qml/pages/DashPage.qml:49 jotit.desktop.in.h:1
+msgid "Jotit"
+msgstr "Jotit"
+
+#: ../qml/pages/DashPage.qml:90
+msgid "You have no notes yet"
+msgstr "Vous n'avez pas encore de notes"
+
+#: ../qml/pages/DashPage.qml:111
+msgid "Search…"
+msgstr "Recherche…"
+
+#: ../qml/pages/EditPage.qml:44
+msgid "Last updated: %1"
+msgstr "Dernière mise à jour : %1"
