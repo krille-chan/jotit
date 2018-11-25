@@ -1,0 +1,59 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the joti$
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: jotit.christianpauly\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-11-25 11:34+0100\n"
+"PO-Revision-Date: 2018-11-25 11:41+0100\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.7.1\n"
+"Last-Translator: Sander Klootwijk <sander.k1007@kpnmail.nl>\$
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: nl_NL\n"
+
+#: ../qml/pages/InfoPage.qml:11
+msgid "Info about Jotit %1"
+msgstr "Informatie over Jotit %1"
+
+#: ../qml/pages/InfoPage.qml:31
+msgid "Donate me a coffee"
+msgstr "Schenk mij een kopje koffie"
+
+#: ../qml/pages/InfoPage.qml:38
+msgid "Contributors"
+msgstr "Bijdragers"
+
+#: ../qml/pages/InfoPage.qml:44
+msgid "Source code"
+msgstr "Broncode"
+
+#: ../qml/pages/InfoPage.qml:50
+msgid "License"
+msgstr "Licentie"
+
+#: ../qml/pages/DashPage.qml:30
+msgid "Empty note"
+msgstr "Lege notitie"
+
+#: ../qml/pages/DashPage.qml:50 jotit.desktop.in.h:1
+msgid "Jotit"
+msgstr "Jotit"
+
+#: ../qml/pages/DashPage.qml:92
+msgid "You have no notes yet"
+msgstr "U heeft nog geen notities"
+
+#: ../qml/pages/DashPage.qml:113
+msgid "Search…"
+msgstr "Zoeken..."
+
+#: ../qml/pages/EditPage.qml:45
+msgid "Last updated: %1"
+msgstr "Laatst bijgewerkt: %1"
