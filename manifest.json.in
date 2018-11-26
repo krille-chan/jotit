@@ -10,7 +10,7 @@
             "content-hub": "jotit.content-hub"
         }
     },
-    "version": "1.3",
+    "version": "1.3.1",
     "maintainer": "Christian Pauly <christian-pauly@posteo.de>",
     "framework" : "ubuntu-sdk-16.04"
 }

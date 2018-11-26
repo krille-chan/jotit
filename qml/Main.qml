@@ -19,7 +19,7 @@ MainView {
     // automatically anchor items to keyboard that are anchored to the bottom
     anchorToKeyboard: true
 
-    readonly property var version: "1.3"
+    readonly property var version: "1.3.1"
     property var tabletMode: width > units.gu(90)
     property var prevMode: false
     property var activeNote: ""
