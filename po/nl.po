@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.8.7.1\n"
-"Last-Translator: Sander Klootwijk <sander.k1007@kpnmail.nl>\$
+"Last-Translator: Sander Klootwijk <sander.k1007@kpnmail.nl>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Language: nl_NL\n"
 
