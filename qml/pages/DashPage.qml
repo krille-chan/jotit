@@ -1,8 +1,10 @@
 import QtQuick 2.9
 import QtQuick.Layouts 1.1
+import QtQuick.Controls 2.2
 import Ubuntu.Components 1.3
 import Ubuntu.Components.Popups 1.3
 import "../components"
+import "../scripts/DashActions.js" as DashActions
 
 Page {
     anchors.fill: parent
@@ -10,79 +12,24 @@ Page {
 
     property var searching: false
 
-    Component.onCompleted: update ()
-
-    Connections {
-        target: root
-        onUpdateGUI: update()
-    }
-
-    function update () {
-        db.transaction(
-            function(tx) {
-                var res = tx.executeSql("SELECT * FROM Notes ORDER BY timestamp DESC")
-                model.clear ()
-                for ( var i = 0; i < res.rows.length; i++ ) {
-                    var note = res.rows.item(i)
-                    if ( note.text === null ) note.text = ""
-                    model.append ( {
-                        "id": note.id,
-                        "text": note.text.split("&#39;").join("'") || i18n.tr('Empty note'),
-                        "timestamp": note.timestamp
-                    } )
-                }
-            }
-        )
-    }
-
-
-    Connections {
-        target: mainStack
-        onDepthChanged: {
-            searching = false
-            update ()
-        }
-    }
-
-
     header: DefaultHeader {
         id: header
         title: i18n.tr('Jotit')
         sideStack: true
+
         trailingActionBar {
             actions: [
             Action {
                 iconName: searching ? "close" : "search"
-                onTriggered: {
-                    searching = searchField.focus = !searching
-                    if ( !searching ) searchField.text = ""
-                }
+                onTriggered: DashActions.toggleSearch ()
             },
             Action {
                 iconName: "info"
-                onTriggered: {
-                    if ( mainStack.depth > 1 ) mainStack.pop()
-                    mainStack.push(Qt.resolvedUrl("./InfoPage.qml"))
-                }
+                onTriggered: layout.pushPage( "Info" )
             },
             Action {
                 iconName: "add"
-                onTriggered: {
-                    db.transaction(
-                        function(tx) {
-                            var now = new Date().getTime()
-                            tx.executeSql("INSERT INTO Notes VALUES(?,?,?)", [
-                            now,
-                            "",
-                            now
-                            ])
-                            if ( mainStack.depth > 1 ) mainStack.pop()
-                            activeNote = now
-                            mainStack.push(Qt.resolvedUrl("../pages/EditPage.qml"))
-                        }
-                    )
-                    dashPage.update()
-                }
+                onTriggered: DashActions.create ()
             }
             ]
         }
@@ -111,6 +58,7 @@ Page {
         }
         inputMethodHints: Qt.ImhNoPredictiveText
         placeholderText: i18n.tr("Search…")
+        onDisplayTextChanged: notesModel.search ( displayText )
     }
 
 
@@ -121,7 +69,7 @@ Page {
         anchors.top: header.bottom
         anchors.topMargin: searching * (searchField.height + units.gu(2))
         delegate: NoteListItem {}
-        model: ListModel { id: model }
+        model: notesModel
         add: Transition {
             NumberAnimation { property: "opacity"; to: 100; duration: 300 }
         }
@@ -129,6 +77,12 @@ Page {
             ParallelAnimation {
                 NumberAnimation { property: "opacity"; to: 0; duration: 300 }
             }
+        }
+        move: Transition {
+            SmoothedAnimation { property: "y"; duration: 300 }
+        }
+        displaced: Transition {
+            SmoothedAnimation { property: "y"; duration: 300 }
         }
     }
 }

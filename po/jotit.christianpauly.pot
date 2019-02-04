@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jotit.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-11-26 11:34+0000\n"
+"POT-Creation-Date: 2019-02-04 11:21+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,42 +17,50 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../qml/pages/InfoPage.qml:11
+#: ../qml/pages/InfoPage.qml:12
 msgid "Info about Jotit %1"
 msgstr ""
 
-#: ../qml/pages/InfoPage.qml:31
-msgid "Donate me a coffee"
+#: ../qml/pages/InfoPage.qml:36
+msgid "Become a patron"
 msgstr ""
 
-#: ../qml/pages/InfoPage.qml:38
+#: ../qml/pages/InfoPage.qml:43
+msgid "Support on Liberapay"
+msgstr ""
+
+#: ../qml/pages/InfoPage.qml:49
 msgid "Contributors"
 msgstr ""
 
-#: ../qml/pages/InfoPage.qml:44
+#: ../qml/pages/InfoPage.qml:55
 msgid "Source code"
 msgstr ""
 
-#: ../qml/pages/InfoPage.qml:50
+#: ../qml/pages/InfoPage.qml:61
 msgid "License"
 msgstr ""
 
-#: ../qml/pages/DashPage.qml:30
-msgid "Empty note"
-msgstr ""
-
-#: ../qml/pages/DashPage.qml:50 jotit.desktop.in.h:1
+#: ../qml/pages/DashPage.qml:17 jotit.desktop.in.h:1
 msgid "Jotit"
 msgstr ""
 
-#: ../qml/pages/DashPage.qml:92
+#: ../qml/pages/DashPage.qml:39
 msgid "You have no notes yet"
 msgstr ""
 
-#: ../qml/pages/DashPage.qml:113
+#: ../qml/pages/DashPage.qml:60
 msgid "Search…"
 msgstr ""
 
-#: ../qml/pages/EditPage.qml:45
-msgid "Last updated: %1"
+#: ../qml/pages/EditPage.qml:27
+msgid "Last updated"
+msgstr ""
+
+#: ../qml/components/NoteListItem.qml:23
+msgid "Empty..."
+msgstr ""
+
+#: ../qml/components/NoteListItem.qml:32
+msgid "Delete"
 msgstr ""

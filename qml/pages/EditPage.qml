@@ -4,55 +4,56 @@ import Ubuntu.Components 1.3
 import Ubuntu.Components.Popups 1.3
 import Ubuntu.Content 1.3
 import "../components"
+import "../scripts/EditActions.js" as EditActions
+import "../config.js" as Config
 
 Page {
     anchors.fill: parent
-    id: dashPage
-    property var timestamp
-    property var displayTime: new Date(timestamp).toLocaleString(Qt.locale(), Locale.ShortFormat)
-    property var savedText: ""
-    property var prevText: ""
+    id: editPage
+
+    // The ID of the note which is opened
     property var noteID
 
-    Component.onCompleted: {
-        noteID = activeNote
-        db.transaction(
-            function(tx) {
-                var res = tx.executeSql("SELECT * FROM Notes WHERE id=" + noteID)
-                timestamp = res.rows[0].timestamp
-                textArea.text = savedText = prevText = res.rows[0].text.split("&#39;").join("'") || ""
+    property var timestamp: 0
+    property var prevText: ""
 
-                if ( textArea.text === "" ) textArea.focus = true
-            }
-        )
-    }
+    onNoteIDChanged: EditActions.init ()
 
-    Component.onDestruction: {
-        if ( textArea.displayText === "" ) {
-            db.transaction(
-                function(tx) {
-                    tx.executeSql("DELETE FROM Notes WHERE id=" + noteID + " ")
-                    updateGUI()
-                }
-            )
-        }
-        noteID = ""
-    }
+    Component.onDestruction: EditActions.exit ()
 
 
     header: DefaultHeader {
         id: header
-        title: i18n.tr('Last updated: %1').arg(displayTime)
+        title: i18n.tr('Last updated')
+
+        contents: Column {
+            width: parent.width
+            anchors.centerIn: parent
+
+            Label {
+                text: header.title
+                color: Config.headerFontColor
+                textSize: Label.Large
+            }
+
+            Label {
+                height: units.gu(2)
+                text: EditActions.getDisplayTime()
+                color: Config.headerFontColor
+            }
+        }
+
         trailingActionBar {
             actions: [
             Action {
                 iconName: "share"
-                onTriggered: share.share ( textArea.displayText, textArea.displayText )
+                onTriggered: contentHub.shareText ( textArea.displayText )
+                enabled: textArea.displayText !== ""
             },
             Action {
                 iconName: "edit-undo"
                 onTriggered: textArea.text = prevText
-                enabled: savedText !== prevText
+                enabled: EditActions.savedText !== prevText
             }
             ]
         }
@@ -66,19 +67,9 @@ Page {
             bottom: parent.bottom
             left: parent.left
             right: parent.right
-            topMargin: -units.gu(0.3)
+            margins: -units.gu(0.3)
         }
-        onDisplayTextChanged: {
-            if ( displayText !== savedText ) {
-                db.transaction(
-                    function(tx) {
-                        timestamp = new Date().getTime()
-                        var input = textArea.displayText.split("'").join("&#39;")
-                        tx.executeSql("UPDATE Notes SET timestamp=" + timestamp + ", text='" + input + "' WHERE id=" + noteID)
-                        savedText = textArea.displayText
-                    }
-                )
-            }
-        }
+        onDisplayTextChanged: EditActions.autoSave ()
     }
+
 }

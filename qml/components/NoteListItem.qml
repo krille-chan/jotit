@@ -4,42 +4,34 @@ import Ubuntu.Components 1.3
 import QtGraphicalEffects 1.0
 import Ubuntu.Components.Popups 1.3
 import "../components"
+import "../scripts/TimestampActions.js" as TimestampActions
 
 ListItem {
     id: noteListItem
 
-    height: layout.height
-
-    visible: { searching ? layout.title.text.toUpperCase().indexOf( searchField.displayText.toUpperCase() ) !== -1 : true }
+    height: itemLayout.height
 
     property var noteID: id
 
-    onClicked: {
-        if ( mainStack.depth > 1 ) mainStack.pop()
-        activeNote = noteID
-        mainStack.push(Qt.resolvedUrl("../pages/EditPage.qml"))
-    }
+    visible: isVisible
+
+    onClicked: layout.openNote ( noteID )
 
     ListItemLayout {
-        id: layout
+        id: itemLayout
         width: parent.width
-        title.text: text
-        subtitle.text: new Date(timestamp).toLocaleString(Qt.locale(), Locale.ShortFormat)
+        title.text: text || i18n.tr("Empty...")
+        title.color: text === "" ? UbuntuColors.graphite : "black"
+        subtitle.text: TimestampActions.tsToString ( timestamp )
     }
 
     // Delete Button
     leadingActions: ListItemActions {
         actions: [
         Action {
+            text: i18n.tr("Delete")
             iconName: "edit-delete"
-            onTriggered: {
-                db.transaction(
-                    function(tx) {
-                        var res = tx.executeSql("DELETE FROM Notes WHERE id=" + id)
-                        dashPage.update ()
-                    }
-                )
-            }
+            onTriggered: notesModel.clear ( noteID )
         }
         ]
     }

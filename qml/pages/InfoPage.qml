@@ -8,7 +8,8 @@ Page {
     id: page
 
     header: DefaultHeader {
-        title: i18n.tr('Info about Jotit %1').arg(version)
+        id: header
+        title: i18n.tr('Info about Jotit %1').arg( Qt.application.version )
     }
 
 
@@ -20,18 +21,28 @@ Page {
         contentItem: Column {
             width: page.width
 
-            RoundedImage {
+            UbuntuShape {
                 anchors.horizontalCenter: parent.horizontalCenter
-                width: parent.width / 2
+                width: Math.min( parent.width/2, units.gu(16) )
                 height: width
-                source: "../../assets/logo.png"
+                relativeRadius: 0.75
+                aspect: UbuntuShape.Flat
+                source: Image {
+                    source: "../../assets/logo.png"
+                }
             }
 
             SettingsListItem {
-                name: i18n.tr("Donate me a coffee")
+                name: i18n.tr("Become a patron")
                 icon: "like"
                 iconColor: UbuntuColors.red
-                onClicked: Qt.openUrlExternally("https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZAGCFNJ2SKZY8")
+                onClicked: Qt.openUrlExternally("https://www.patreon.com/krillechritzelius")
+            }
+
+            SettingsListItem {
+                name: i18n.tr("Support on Liberapay")
+                icon: "like"
+                onClicked: Qt.openUrlExternally("https://liberapay.com/KrilleChritzelius")
             }
 
             SettingsListItem {
