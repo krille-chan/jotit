@@ -55,7 +55,7 @@ msgstr "Recherche…"
 
 #: ../qml/pages/EditPage.qml:27
 msgid "Last updated"
-msgstr "Dernière mis à jour"
+msgstr "Dernière mise à jour"
 
 #: ../qml/components/NoteListItem.qml:23
 msgid "Empty..."
