@@ -9,7 +9,7 @@ import "../scripts/TimestampActions.js" as TimestampActions
 ListItem {
     id: noteListItem
 
-    height: itemLayout.height
+    height: visible*itemLayout.height
 
     property var noteID: id
 

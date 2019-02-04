@@ -12,7 +12,7 @@ ListModel {
         text,
         now
         ])
-        model.append ( {
+        model.insert ( 0, {
             "id": now,
             "text": text,
             "timestamp": now,

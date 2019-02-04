@@ -7,53 +7,67 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jotit.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-09 17:41+0000\n"
-"PO-Revision-Date: 2018-10-09 19:45+0200\n"
+"POT-Creation-Date: 2019-02-04 11:34+0000\n"
+"PO-Revision-Date: 2019-02-04 12:35+0100\n"
+"Last-Translator: \n"
 "Language-Team: \n"
+"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.2\n"
-"Last-Translator: \n"
+"X-Generator: Poedit 2.2.1\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"Language: de\n"
 
-#: ../qml/pages/InfoPage.qml:11
+#: ../qml/pages/InfoPage.qml:12
 msgid "Info about Jotit %1"
 msgstr "Infos über Jotit %1"
 
-#: ../qml/pages/InfoPage.qml:33
-msgid "Donate me a coffee"
-msgstr "Gib mir einen Kaffee aus"
+#: ../qml/pages/InfoPage.qml:42
+msgid "Become a patron"
+msgstr "Werde ein Patron"
 
-#: ../qml/pages/InfoPage.qml:40
+#: ../qml/pages/InfoPage.qml:49
+msgid "Support on Liberapay"
+msgstr "Auf Liberapay unterstützen"
+
+#: ../qml/pages/InfoPage.qml:55
 msgid "Contributors"
 msgstr "Mitwirkende"
 
-#: ../qml/pages/InfoPage.qml:46
+#: ../qml/pages/InfoPage.qml:61
 msgid "Source code"
 msgstr "Quellcode"
 
-#: ../qml/pages/InfoPage.qml:52
+#: ../qml/pages/InfoPage.qml:67
 msgid "License"
 msgstr "Lizenz"
 
-#: ../qml/pages/DashPage.qml:29
-msgid "Empty note"
-msgstr "Leere Notiz"
-
-#: ../qml/pages/DashPage.qml:46 jotit.desktop.in.h:1
+#: ../qml/pages/DashPage.qml:17 jotit.desktop.in.h:1
 msgid "Jotit"
 msgstr "Jotit"
 
-#: ../qml/pages/DashPage.qml:82
+#: ../qml/pages/DashPage.qml:39
 msgid "You have no notes yet"
 msgstr "Du hast noch keine Notizen"
 
-#: ../qml/pages/DashPage.qml:103
+#: ../qml/pages/DashPage.qml:60
 msgid "Search…"
 msgstr "Suche ..."
 
-#: ../qml/pages/EditPage.qml:42
-msgid "Last updated: %1"
-msgstr "Zuletzt: %1"
+#: ../qml/pages/EditPage.qml:27
+msgid "Last updated"
+msgstr "Aktualisiert"
+
+#: ../qml/components/NoteListItem.qml:23
+msgid "Empty..."
+msgstr "Leer ..."
+
+#: ../qml/components/NoteListItem.qml:32
+msgid "Delete"
+msgstr "Löschen"
+
+#~ msgid "Donate me a coffee"
+#~ msgstr "Gib mir einen Kaffee aus"
+
+#~ msgid "Empty note"
+#~ msgstr "Leere Notiz"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jotit.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-04 11:21+0000\n"
+"POT-Creation-Date: 2019-02-04 11:34+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,23 +21,23 @@ msgstr ""
 msgid "Info about Jotit %1"
 msgstr ""
 
-#: ../qml/pages/InfoPage.qml:36
+#: ../qml/pages/InfoPage.qml:42
 msgid "Become a patron"
 msgstr ""
 
-#: ../qml/pages/InfoPage.qml:43
+#: ../qml/pages/InfoPage.qml:49
 msgid "Support on Liberapay"
 msgstr ""
 
-#: ../qml/pages/InfoPage.qml:49
+#: ../qml/pages/InfoPage.qml:55
 msgid "Contributors"
 msgstr ""
 
-#: ../qml/pages/InfoPage.qml:55
+#: ../qml/pages/InfoPage.qml:61
 msgid "Source code"
 msgstr ""
 
-#: ../qml/pages/InfoPage.qml:61
+#: ../qml/pages/InfoPage.qml:67
 msgid "License"
 msgstr ""
 

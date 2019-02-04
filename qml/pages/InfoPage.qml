@@ -21,6 +21,12 @@ Page {
         contentItem: Column {
             width: page.width
 
+            Rectangle {
+                color: "transparent"
+                width: parent.width
+                height: units.gu(2)
+            }
+
             UbuntuShape {
                 anchors.horizontalCenter: parent.horizontalCenter
                 width: Math.min( parent.width/2, units.gu(16) )
