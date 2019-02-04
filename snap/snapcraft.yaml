@@ -1,0 +1,93 @@
+name: jotit
+base: core18
+version: script
+version-script: echo $(git rev-parse --short HEAD)
+summary: Note taking app
+description: Jotit is a simple note taking app
+grade: devel
+confinement: strict
+
+apps:
+  jotit:
+    command: desktop-launch $SNAP/usr/bin/launcher.sh
+    desktop: usr/share/applications/jotit.desktop
+    plugs:
+      - desktop
+      - desktop-legacy
+      - wayland
+      - unity7
+      - opengl
+
+parts:
+  jotit:
+    source: .
+    plugin: cmake
+    organize:
+      jotit.desktop: usr/share/applications/
+    stage:
+      - assets
+      - share
+      - usr
+      - qml
+    build-packages:
+      - qtbase5-dev
+      - qtdeclarative5-dev
+      - intltool
+    after: [ubports-repo]
+  qt-conf:
+    plugin: dump
+    source: snap/local
+    organize: { qt.conf: usr/lib/qt5/bin/qt.conf }
+    stage: [ usr/lib/qt5/bin/qt.conf ]
+  uuitk:
+    plugin: nil
+    stage-packages:
+      - qt5-default
+      - libqt5svg5
+      - libubuntutoolkit5
+      - qmlscene
+      - qml-module-qt-labs-settings
+      - qml-module-qtquick-localstorage
+      - qml-module-qtquick-controls2
+      - qml-module-ubuntu-components
+      - qtdeclarative5-ubuntu-content1
+    after: [ubports-repo]
+  ubports-repo:
+    plugin: nil
+    override-build: |
+      sudo apt install -y -q software-properties-common
+      wget -qO - http://repo.ubports.com/pubkey.gpg | sudo apt-key add -
+      sudo apt-add-repository 'deb [arch=amd64] https://repo.ubports.com bionic main'
+      sudo apt-get update
+  desktop-launcher:
+    source: https://github.com/ubuntu/snapcraft-desktop-helpers.git
+    source-subdir: qt
+    plugin: make
+    make-parameters: ["FLAVOR=qt5"]
+    build-packages:
+    - dpkg-dev
+    stage-packages:
+    - libxkbcommon0
+    - ttf-ubuntu-font-family
+    - dmz-cursor-theme
+    - light-themes
+    - adwaita-icon-theme
+    - gnome-themes-standard
+    - shared-mime-info
+    - libqt5gui5
+    - libgdk-pixbuf2.0-0
+    - libqt5svg5 # for loading icon themes which are svg
+    - try: [appmenu-qt5] # not available on core18
+    - locales-all
+    - libxcomposite1
+    - libxcursor1
+    - libxinerama1
+    - libxrandr2
+    - libatk1.0-0
+    - libgtk2.0-0
+    after: [ubports-repo]
+  launcher:
+    plugin: dump
+    source: snap/local
+    organize: { launcher.sh: usr/bin/ }
+    stage: [usr/bin/launcher.sh]
