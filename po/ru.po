@@ -1,0 +1,59 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: jotit.christianpauly\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-10-09 17:41+0000\n"
+"PO-Revision-Date: 2018-10-09 19:45+0200\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2\n"
+"Last-Translator: \n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: ru\n"
+
+#: ../qml/pages/InfoPage.qml:11
+msgid "Info about Jotit %1"
+msgstr "Информация о Jotit %1"
+
+#: ../qml/pages/InfoPage.qml:33
+msgid "Donate me a coffee"
+msgstr "Пожертвуйте мне на кофе"
+
+#: ../qml/pages/InfoPage.qml:40
+msgid "Contributors"
+msgstr "Авторы"
+
+#: ../qml/pages/InfoPage.qml:46
+msgid "Source code"
+msgstr "Исходный код"
+
+#: ../qml/pages/InfoPage.qml:52
+msgid "License"
+msgstr "Лицензия"
+
+#: ../qml/pages/DashPage.qml:29
+msgid "Empty note"
+msgstr "Пустая заметка"
+
+#: ../qml/pages/DashPage.qml:46 jotit.desktop.in.h:1
+msgid "Jotit"
+msgstr "Jotit"
+
+#: ../qml/pages/DashPage.qml:82
+msgid "You have no notes yet"
+msgstr "У вас еще нет заметок"
+
+#: ../qml/pages/DashPage.qml:103
+msgid "Search…"
+msgstr "Поиск…"
+
+#: ../qml/pages/EditPage.qml:42
+msgid "Last updated: %1"
+msgstr "Обновлено: %1"
