@@ -32,14 +32,14 @@ Page {
 
             Label {
                 text: header.title
-                color: Config.headerFontColor
+                color: Config.HEADER_FONT_COLOR
                 textSize: Label.Large
             }
 
             Label {
                 height: units.gu(2)
                 text: EditActions.getDisplayTime()
-                color: Config.headerFontColor
+                color: Config.HEADER_FONT_COLOR
             }
         }
 

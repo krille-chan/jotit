@@ -3,7 +3,7 @@
 Qt.include("TimestampActions.js")
 Qt.include("../config.js")
 
-var lastsaved = new Date().getTime() - saveTimeout
+var lastsaved = new Date().getTime() - SAVE_TIMEOUT
 
 function init () {
     textArea.text = ""
@@ -20,7 +20,7 @@ function init () {
 
 
 function autoSave () {
-    if ( new Date().getTime () - lastsaved > saveTimeout ) {
+    if ( new Date().getTime () - lastsaved > SAVE_TIMEOUT ) {
         save ()
     }
 }

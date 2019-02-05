@@ -16,8 +16,8 @@ ListItem {
 
     visible: isVisible
 
-    highlightColor: Config.highlightColor
-    color: noteID === notesModel.currentNodeId ? Config.highlightColor : "transparent"
+    highlightColor: Config.HIGHLIGHT_COLOR
+    color: noteID === notesModel.currentNodeId ? Config.HIGHLIGHT_COLOR : "transparent"
 
     onClicked: layout.openNote ( noteID )
 

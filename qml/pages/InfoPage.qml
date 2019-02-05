@@ -2,6 +2,7 @@ import QtQuick 2.9
 import QtQuick.Layouts 1.1
 import Ubuntu.Components 1.3
 import "../components"
+import "../config.js" as Config
 
 Page {
     anchors.fill: parent
@@ -9,7 +10,7 @@ Page {
 
     header: DefaultHeader {
         id: header
-        title: i18n.tr('Info about Jotit %1').arg( Qt.application.version )
+        title: i18n.tr('Info about Jotit %1').arg( Config.VERSION )
     }
 
 

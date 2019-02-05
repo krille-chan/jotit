@@ -9,6 +9,6 @@ PageHeader {
     property var sideStack: false
 
     StyleHints {
-        foregroundColor: Config.headerFontColor
+        foregroundColor: Config.HEADER_FONT_COLOR
     }
 }
