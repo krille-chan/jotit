@@ -40,6 +40,12 @@ function share () {
 }
 
 
+function undo () {
+    textArea.text = prevText
+    save ()
+}
+
+
 function exit () {
     if ( textArea.displayText === "" ) {
         notesModel.clear ( noteID )

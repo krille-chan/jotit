@@ -52,7 +52,7 @@ Page {
             },
             Action {
                 iconName: "edit-undo"
-                onTriggered: textArea.text = prevText
+                onTriggered: EditActions.undo ()
                 enabled: EditActions.savedText !== prevText
             }
             ]
