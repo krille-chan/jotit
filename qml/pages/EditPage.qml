@@ -53,7 +53,7 @@ Page {
             Action {
                 iconName: "edit-undo"
                 onTriggered: EditActions.undo ()
-                enabled: EditActions.savedText !== prevText
+                enabled: textArea.displayText !== prevText
             }
             ]
         }

@@ -1,8 +1,9 @@
 // File: EditActions.js
 // Description: Actions for EditPage.qml
 Qt.include("TimestampActions.js")
+Qt.include("../config.js")
 
-var lastsaved = new Date().getTime()
+var lastsaved = new Date().getTime() - saveTimeout
 
 function init () {
     textArea.text = ""
@@ -19,17 +20,19 @@ function init () {
 
 
 function autoSave () {
-    if ( new Date().getTime () - lastsaved > 10000 ) {
+    if ( new Date().getTime () - lastsaved > saveTimeout ) {
         save ()
     }
 }
 
 function save () {
-    console.log("Saved", lastsaved)
-    timestamp = new Date().getTime()
-    var input = textArea.displayText.split("'").join("&#39;")
-    notesModel.update ( noteID, textArea.displayText )
-    lastsaved = new Date().getTime()
+    if ( prevText !== textArea.text ) {
+        console.log("Saved", lastsaved)
+        timestamp = new Date().getTime()
+        var input = textArea.displayText.split("'").join("&#39;")
+        notesModel.update ( noteID, textArea.displayText )
+        lastsaved = new Date().getTime()
+    }
 }
 
 

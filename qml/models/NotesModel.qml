@@ -5,6 +5,8 @@ import "../scripts/StorageActions.js" as StorageActions
 ListModel {
     id: model
 
+    property var currentNodeId: ""
+
     function add ( text ) {
         var now = new Date().getTime()
         StorageActions.transaction('INSERT INTO Notes VALUES(?, ?, ?)', [
@@ -53,6 +55,7 @@ ListModel {
 
 
     function getNote ( id, callback ) {
+        currentNodeId = id
         var handleResult = function ( result ) {
             if ( result.rows.length !== 1 ) callback ( false )
             else callback ( result.rows[0] )

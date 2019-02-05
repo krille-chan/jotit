@@ -5,6 +5,7 @@ import QtGraphicalEffects 1.0
 import Ubuntu.Components.Popups 1.3
 import "../components"
 import "../scripts/TimestampActions.js" as TimestampActions
+import "../config.js" as Config
 
 ListItem {
     id: noteListItem
@@ -14,6 +15,9 @@ ListItem {
     property var noteID: id
 
     visible: isVisible
+
+    highlightColor: Config.highlightColor
+    color: noteID === notesModel.currentNodeId ? Config.highlightColor : "transparent"
 
     onClicked: layout.openNote ( noteID )
 
