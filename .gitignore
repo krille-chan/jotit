@@ -1,3 +1,7 @@
+# Clickable
 build
 .clickable
 qml/token.js
+
+# Snapcraft
+*.snap
