@@ -25,5 +25,6 @@ function pushPage ( page ) {
 }
 
 function openNote ( id ) {
+    notesModel.currentNodeId = id
     apLayout.addPageToNextColumn( dashPage, Qt.resolvedUrl ( getPath( "Edit" ) ), { "noteID": id } )
 }

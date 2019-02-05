@@ -46,11 +46,6 @@ Page {
         trailingActionBar {
             actions: [
             Action {
-                iconName: "share"
-                onTriggered: contentHub.shareText ( textArea.displayText )
-                enabled: textArea.displayText !== ""
-            },
-            Action {
                 iconName: "edit-undo"
                 onTriggered: EditActions.undo ()
                 enabled: textArea.displayText !== prevText

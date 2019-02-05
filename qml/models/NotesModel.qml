@@ -55,7 +55,6 @@ ListModel {
 
 
     function getNote ( id, callback ) {
-        currentNodeId = id
         var handleResult = function ( result ) {
             if ( result.rows.length !== 1 ) callback ( false )
             else callback ( result.rows[0] )

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jotit.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-05 15:07+0000\n"
+"POT-Creation-Date: 2019-02-05 15:19+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -57,10 +57,10 @@ msgstr ""
 msgid "Last updated"
 msgstr ""
 
-#: ../qml/components/NoteListItem.qml:27
+#: ../qml/components/NoteListItem.qml:28
 msgid "Empty..."
 msgstr ""
 
-#: ../qml/components/NoteListItem.qml:36
+#: ../qml/components/NoteListItem.qml:37
 msgid "Delete"
 msgstr ""

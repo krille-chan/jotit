@@ -9,7 +9,7 @@ function init () {
     textArea.text = ""
     var addToGUI = function ( note ) {
         timestamp = note.timestamp
-        if ( note.text ) {
+        if ( note.text && note.text !== "" ) {
             textArea.text = prevText = note.text.split("&#39;").join("'") || ""
         }
         else textArea.focus = true

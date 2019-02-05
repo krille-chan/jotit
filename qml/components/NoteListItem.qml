@@ -13,6 +13,7 @@ ListItem {
     height: visible*itemLayout.height
 
     property var noteID: id
+    property var contentText: text
 
     visible: isVisible
 
@@ -24,8 +25,8 @@ ListItem {
     ListItemLayout {
         id: itemLayout
         width: parent.width
-        title.text: text || i18n.tr("Empty...")
-        title.color: text === "" ? UbuntuColors.graphite : "black"
+        title.text: contentText || i18n.tr("Empty...")
+        title.color: contentText === "" ? UbuntuColors.graphite : "black"
         subtitle.text: TimestampActions.tsToString ( timestamp )
     }
 
@@ -36,6 +37,17 @@ ListItem {
             text: i18n.tr("Delete")
             iconName: "edit-delete"
             onTriggered: notesModel.clear ( noteID )
+        }
+        ]
+    }
+
+    // Share button
+    trailingActions: ListItemActions {
+        actions: [
+        Action {
+            iconName: "share"
+            onTriggered: contentHub.shareText ( contentText )
+            visible: contentText !== ""
         }
         ]
     }
