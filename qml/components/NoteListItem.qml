@@ -45,6 +45,7 @@ ListItem {
     trailingActions: ListItemActions {
         actions: [
         Action {
+            text: i18n.tr("Share")
             iconName: "share"
             onTriggered: contentHub.shareText ( contentText )
             visible: contentText !== ""

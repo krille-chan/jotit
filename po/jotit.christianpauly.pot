@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jotit.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-05 15:19+0000\n"
+"POT-Creation-Date: 2019-02-05 15:51+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -45,12 +45,12 @@ msgstr ""
 msgid "Jotit"
 msgstr ""
 
-#: ../qml/pages/DashPage.qml:39
-msgid "You have no notes yet"
+#: ../qml/pages/DashPage.qml:51
+msgid "Search…"
 msgstr ""
 
-#: ../qml/pages/DashPage.qml:60
-msgid "Search…"
+#: ../qml/pages/DashPage.qml:57
+msgid "You have no notes yet"
 msgstr ""
 
 #: ../qml/pages/EditPage.qml:27
@@ -63,4 +63,8 @@ msgstr ""
 
 #: ../qml/components/NoteListItem.qml:37
 msgid "Delete"
+msgstr ""
+
+#: ../qml/components/NoteListItem.qml:48
+msgid "Share"
 msgstr ""

@@ -54,6 +54,7 @@ function exit () {
         notesModel.clear ( noteID )
     }
     else save ()
+    notesModel.currentNodeId = null
 }
 
 

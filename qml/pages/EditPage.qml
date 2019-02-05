@@ -49,6 +49,11 @@ Page {
                 iconName: "edit-undo"
                 onTriggered: EditActions.undo ()
                 enabled: textArea.displayText !== prevText
+            },
+            Action {
+                iconName: "edit-copy"
+                onTriggered: contentHub.toClipboard ( textArea.displayText )
+                enabled: textArea.displayText !== "" && contentHub.clipboardText !== textArea.displayText
             }
             ]
         }

@@ -8,6 +8,7 @@ Item {
 
     id: shareController
     property url uri: ""
+    property alias clipboardText: mimeData.text
 
     signal done ()
     signal shareRequested ( var transfer )

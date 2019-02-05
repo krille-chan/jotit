@@ -10,28 +10,46 @@ Page {
     anchors.fill: parent
     id: dashPage
 
-    property var searching: false
+    property var searching: true
 
     header: DefaultHeader {
         id: header
         title: i18n.tr('Jotit')
         sideStack: true
 
-        trailingActionBar {
+        /*leadingActionBar {
             actions: [
             Action {
-                iconName: searching ? "close" : "search"
-                onTriggered: DashActions.toggleSearch ()
-            },
-            Action {
-                iconName: "info"
-                onTriggered: layout.pushPage( "Info" )
-            },
+                iconName: "contextual-menu"
+                onTriggered: layout.pushPage ( "Info" )
+            }
+            ]
+        }*/
+
+        trailingActionBar {
+            actions: [
             Action {
                 iconName: "add"
                 onTriggered: DashActions.create ()
             }
             ]
+        }
+
+        contents: TextField {
+            id: searchField
+            objectName: "searchField"
+            primaryItem: Icon {
+                height: parent.height - units.gu(2)
+                name: "find"
+                anchors.left: parent.left
+                anchors.leftMargin: units.gu(0.25)
+            }
+            width: parent.width - units.gu(1)
+            anchors.left: parent.left
+            anchors.verticalCenter: parent.verticalCenter
+            inputMethodHints: Qt.ImhNoPredictiveText
+            placeholderText: i18n.tr("Search…")
+            onDisplayTextChanged: notesModel.search ( displayText )
         }
     }
 
@@ -42,42 +60,13 @@ Page {
     }
 
 
-    TextField {
-        id: searchField
-        objectName: "searchField"
-        visible: searching
-        z: 5
-        anchors {
-            top: header.bottom
-            topMargin: units.gu(1)
-            bottomMargin: units.gu(1)
-            left: parent.left
-            right: parent.right
-            rightMargin: units.gu(2)
-            leftMargin: units.gu(2)
-        }
-        inputMethodHints: Qt.ImhNoPredictiveText
-        placeholderText: i18n.tr("Search…")
-        onDisplayTextChanged: notesModel.search ( displayText )
-    }
-
-
     ListView {
         id: noteListView
         width: parent.width
         height: parent.height - header.height
         anchors.top: header.bottom
-        anchors.topMargin: searching * (searchField.height + units.gu(2))
         delegate: NoteListItem {}
         model: notesModel
-        add: Transition {
-            NumberAnimation { property: "opacity"; to: 100; duration: 300 }
-        }
-        remove: Transition {
-            ParallelAnimation {
-                NumberAnimation { property: "opacity"; to: 0; duration: 300 }
-            }
-        }
         move: Transition {
             SmoothedAnimation { property: "y"; duration: 300 }
         }
