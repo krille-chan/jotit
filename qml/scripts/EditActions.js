@@ -2,14 +2,14 @@
 // Description: Actions for EditPage.qml
 Qt.include("TimestampActions.js")
 
-var savedText = ""
+var lastsaved = new Date().getTime()
 
 function init () {
     textArea.text = ""
     var addToGUI = function ( note ) {
         timestamp = note.timestamp
         if ( note.text ) {
-            textArea.text = savedText = prevText = note.text.split("&#39;").join("'") || ""
+            textArea.text = prevText = note.text.split("&#39;").join("'") || ""
         }
         else textArea.focus = true
     }
@@ -19,12 +19,17 @@ function init () {
 
 
 function autoSave () {
-    if ( textArea.displayText !== savedText ) {
-        timestamp = new Date().getTime()
-        var input = textArea.displayText.split("'").join("&#39;")
-        notesModel.update ( noteID, textArea.displayText )
-        savedText = textArea.displayText
+    if ( new Date().getTime () - lastsaved > 10000 ) {
+        save ()
     }
+}
+
+function save () {
+    console.log("Saved", lastsaved)
+    timestamp = new Date().getTime()
+    var input = textArea.displayText.split("'").join("&#39;")
+    notesModel.update ( noteID, textArea.displayText )
+    lastsaved = new Date().getTime()
 }
 
 
@@ -39,6 +44,7 @@ function exit () {
     if ( textArea.displayText === "" ) {
         notesModel.clear ( noteID )
     }
+    else save ()
 }
 
 
