@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jotit.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-10 07:37+0000\n"
-"PO-Revision-Date: 2018-10-10 13:34+0200\n"
+"POT-Creation-Date: 2019-02-04 11:34+0000\n"
+"PO-Revision-Date: 2019-02-04 23:09+0100\n"
 "Last-Translator: advocatux <advocatux@airpost.net>\n"
 "Language-Team: UBports Spanish Team\n"
 "Language: es\n"
@@ -17,42 +17,50 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
-#: ../qml/pages/InfoPage.qml:11
+#: ../qml/pages/InfoPage.qml:12
 msgid "Info about Jotit %1"
 msgstr "Información acerca de Jotit %1"
 
-#: ../qml/pages/InfoPage.qml:31
-msgid "Donate me a coffee"
-msgstr "Invitarme a un café"
+#: ../qml/pages/InfoPage.qml:42
+msgid "Become a patron"
+msgstr "Hacerse patrocinador"
 
-#: ../qml/pages/InfoPage.qml:38
+#: ../qml/pages/InfoPage.qml:49
+msgid "Support on Liberapay"
+msgstr "Soporte en Liberapay"
+
+#: ../qml/pages/InfoPage.qml:55
 msgid "Contributors"
 msgstr "Colaboradores"
 
-#: ../qml/pages/InfoPage.qml:44
+#: ../qml/pages/InfoPage.qml:61
 msgid "Source code"
 msgstr "Código fuente"
 
-#: ../qml/pages/InfoPage.qml:50
+#: ../qml/pages/InfoPage.qml:67
 msgid "License"
 msgstr "Licencia"
 
-#: ../qml/pages/DashPage.qml:29
-msgid "Empty note"
-msgstr "Nota vacía"
-
-#: ../qml/pages/DashPage.qml:49 jotit.desktop.in.h:1
+#: ../qml/pages/DashPage.qml:17 jotit.desktop.in.h:1
 msgid "Jotit"
 msgstr "Jotit"
 
-#: ../qml/pages/DashPage.qml:90
+#: ../qml/pages/DashPage.qml:39
 msgid "You have no notes yet"
 msgstr "Aún no tiene notas"
 
-#: ../qml/pages/DashPage.qml:111
+#: ../qml/pages/DashPage.qml:60
 msgid "Search…"
 msgstr "Buscar…"
 
-#: ../qml/pages/EditPage.qml:44
-msgid "Last updated: %1"
-msgstr "Última actualización: %1"
+#: ../qml/pages/EditPage.qml:27
+msgid "Last updated"
+msgstr "Última actualización"
+
+#: ../qml/components/NoteListItem.qml:23
+msgid "Empty..."
+msgstr "Vacío..."
+
+#: ../qml/components/NoteListItem.qml:32
+msgid "Delete"
+msgstr "Borrar"
