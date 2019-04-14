@@ -55,7 +55,7 @@ parts:
   ubports-repo:
     plugin: nil
     override-build: |
-      sudo apt install -y -q software-properties-common
+      sudo apt install -y -q software-properties-common wget
       wget -qO - http://repo.ubports.com/pubkey.gpg | sudo apt-key add -
       sudo apt-add-repository 'deb [arch=amd64] https://repo.ubports.com bionic main'
       sudo apt-get update
