@@ -4,7 +4,7 @@ version: script
 version-script: echo $(git rev-parse --short HEAD)
 summary: Note taking app
 description: Jotit is a simple note taking app
-grade: devel
+grade: stable
 confinement: strict
 
 apps:
