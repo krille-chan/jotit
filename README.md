@@ -1,6 +1,6 @@
 # Jotit
 
-Take nots on Ubuntu Touch.
+Take notes on Ubuntu Touch.
 
 Download from the Open Store: https://open-store.io/app/jotit.christianpauly
 
