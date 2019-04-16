@@ -13,7 +13,7 @@ MainView {
     applicationName: 'jotit.christianpauly'
     automaticOrientation: true
 
-    width: units.gu(45)
+    width: units.gu(125)
     height: units.gu(75)
 
     Settings {
