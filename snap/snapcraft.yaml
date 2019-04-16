@@ -21,6 +21,7 @@ apps:
 parts:
   jotit:
     source: .
+    source-branch: release
     plugin: cmake
     organize:
       jotit.desktop: usr/share/applications/
